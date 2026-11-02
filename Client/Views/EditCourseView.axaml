@@ -1,0 +1,136 @@
+
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Client.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Client.Views.EditCourseView"
+             x:DataType="vm:EditCourseViewModel">
+
+    <StackPanel>
+        <TextBlock Classes="pageTitle"
+                   Text="{Binding PageTitle}" />
+
+        <Border HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                BorderBrush="White"
+                BorderThickness="0"
+                Padding="0 30">
+
+            <StackPanel>
+
+                <Grid RowSpacing="10"
+                      ColumnSpacing="10"
+                      ColumnDefinitions="200,*"
+                      RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+                      ShowGridLines="False">
+
+                    <Label Classes="form"
+                           Grid.Row="0"
+                           HorizontalAlignment="Right"
+                           Content="Kursnummer" />
+
+                    <Label Classes="form"
+                           Grid.Row="1"
+                           HorizontalAlignment="Right"
+                           Content="Kursnamn" />
+
+                    <Label Classes="form"
+                           Grid.Row="2"
+                           HorizontalAlignment="Right"
+                           Content="Kurstyp" />
+
+                    <Label Classes="form"
+                           Grid.Row="3"
+                           HorizontalAlignment="Right"
+                           Content="Antal veckor" />
+
+                    <Label Classes="form"
+                           Grid.Row="4"
+                           HorizontalAlignment="Right"
+                           Content="Startdatum" />
+
+                    <Label Classes="form"
+                           Grid.Row="5"
+                           HorizontalAlignment="Right"
+                           Content="Slutdatum" />
+
+                    <TextBox Classes="form"
+                             Grid.Column="1"
+                             Grid.Row="0"
+                             Width="250"
+                             HorizontalAlignment="Left"
+                             Text="{Binding CourseNumber}" />
+
+                    <TextBox Classes="form"
+                             Grid.Column="1"
+                             Grid.Row="1"
+                             Width="250"
+                             HorizontalAlignment="Left"
+                             Text="{Binding Title}" />
+
+                    <ComboBox Grid.Column="1"
+                              Grid.Row="2"
+                              Width="250"
+                              HorizontalAlignment="Left"
+                              ItemsSource="{Binding CourseTypes}"
+                              SelectedItem="{Binding CourseType}" />
+
+                    <TextBox Classes="form"
+                             Grid.Column="1"
+                             Grid.Row="3"
+                             Width="250"
+                             HorizontalAlignment="Left"
+                             Text="{Binding WeekAmount}" />
+
+                    <CalendarDatePicker Grid.Column="1"
+                                        Grid.Row="4"
+                                        Width="250"
+                                        HorizontalAlignment="Left"
+                                        SelectedDate="{Binding StartDate}" />
+
+                    <CalendarDatePicker Grid.Column="1"
+                                        Grid.Row="5"
+                                        Width="250"
+                                        HorizontalAlignment="Left"
+                                        SelectedDate="{Binding EndDate}" />
+
+                </Grid>
+
+                <StackPanel Spacing="20"
+                            Margin="0 30 0 0"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+
+                    <Button Classes="form"
+                            Command="{Binding SaveCommand}">
+
+                        <StackPanel Orientation="Horizontal">
+                            <Label Padding="5"
+                                   FontFamily="{DynamicResource IconFont}"
+                                   Content="&#xe248;" />
+                            <Label Content="Spara" />
+                        </StackPanel>
+
+                    </Button>
+
+                    <Button Classes="form"
+                            Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToCoursesCommand}">
+
+                        <StackPanel Orientation="Horizontal">
+                            <Label Padding="5"
+                                   FontFamily="{DynamicResource IconFont}"
+                                   Content="&#xe08a;" />
+                            <Label Content="Avbryt" />
+                        </StackPanel>
+
+                    </Button>
+
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+    </StackPanel>
+
+</UserControl>

@@ -1,0 +1,85 @@
+
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:Client.ViewModels"
+             xmlns:models="using:Client.Models"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Client.Views.TeachersView"
+             x:DataType="vm:TeachersViewModel">
+
+    <StackPanel>
+        <TextBlock Classes="pageTitle" Text="Lärare"/>
+
+        <Button HorizontalAlignment="Left"
+                Classes="form"
+                MaxWidth="300"
+                Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToAddTeacherCommand}">
+            <StackPanel Orientation="Horizontal">
+                <Label FontFamily="{DynamicResource IconFont}"
+                       Content="&#xe3d4;"
+                       Padding="0 5 5 0"/>
+                <Label Content="Lägg till lärare"/>
+            </StackPanel>
+        </Button>
+
+        <Border BorderBrush="White"
+                BorderThickness="0 0 0 1"
+                Padding="0 50 0 5">
+
+            <Grid ColumnDefinitions="120,120,*,130,130,50"
+                  ShowGridLines="False">
+
+                <Label Content="Förnamn"/>
+                <Label Grid.Column="1" Content="Efternamn"/>
+                <Label Grid.Column="2" Content="E-post"/>
+                <Label Grid.Column="3" Content="Telefonnummer"/>
+                <Label Grid.Column="4" Content="Ämnesområde"/>
+                <Label Grid.Column="5"/>
+
+            </Grid>
+        </Border>
+
+        <ScrollViewer Height="400">
+            <ItemsControl ItemsSource="{Binding Teachers}"
+                          Margin="0 10 0 0">
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="models:Teacher">
+
+                        <Grid ColumnDefinitions="120,120,*,130,130,50"
+                              ShowGridLines="False">
+
+                            <Label Content="{Binding FirstName}"/>
+
+                            <Label Grid.Column="1"
+                                   Content="{Binding LastName}"/>
+
+                            <Label Grid.Column="2"
+                                   Content="{Binding Email}"/>
+
+                            <Label Grid.Column="3"
+                                   Content="{Binding PhoneNumber}"/>
+
+                            <Label Grid.Column="4"
+                                   Content="{Binding Field}"/>
+
+                            <Button Grid.Column="5"
+                                    Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToEditTeacherCommand}"
+                                    CommandParameter="{Binding Id}"
+                                    FontFamily="{DynamicResource IconFont}"
+                                    Content="&#xebc6;"
+                                    Foreground="Green"
+                                    Padding="10 5 0 10"/>
+
+                        </Grid>
+
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+
+            </ItemsControl>
+        </ScrollViewer>
+    </StackPanel>
+
+</UserControl>
