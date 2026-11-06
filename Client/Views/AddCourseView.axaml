@@ -25,7 +25,6 @@
                       RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
                       ShowGridLines="False">
 
-                    <!-- Labels -->
                     <Label Classes="form"
                            HorizontalAlignment="Right"
                            Content="Kursnummer"/>
@@ -55,7 +54,6 @@
                            HorizontalAlignment="Right"
                            Content="Slutdatum"/>
 
-                    <!-- Inputs -->
                     <TextBox Grid.Column="1"
                              Width="250"
                              HorizontalAlignment="Left"

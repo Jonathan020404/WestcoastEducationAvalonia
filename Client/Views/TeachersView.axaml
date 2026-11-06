@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:Client.ViewModels"
              xmlns:models="using:Client.Models"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="1440" d:DesignHeight="900"
              x:Class="Client.Views.TeachersView"
              x:DataType="vm:TeachersViewModel">
 
@@ -28,7 +28,7 @@
                 BorderThickness="0 0 0 1"
                 Padding="0 50 0 5">
 
-            <Grid ColumnDefinitions="120,120,*,130,130,50"
+            <Grid ColumnDefinitions="150,150,*,280,250,40"
                   ShowGridLines="False">
 
                 <Label Content="Förnamn"/>
@@ -48,7 +48,7 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="models:Teacher">
 
-                        <Grid ColumnDefinitions="120,120,*,130,130,50"
+                        <Grid ColumnDefinitions="150,150,*,280,250,40"
                               ShowGridLines="False">
 
                             <Label Content="{Binding FirstName}"/>
@@ -66,11 +66,11 @@
                                    Content="{Binding Field}"/>
 
                             <Button Grid.Column="5"
+                                    Classes="edit"
                                     Command="{Binding $parent[Window].((vm:MainWindowViewModel)DataContext).GoToEditTeacherCommand}"
                                     CommandParameter="{Binding Id}"
                                     FontFamily="{DynamicResource IconFont}"
                                     Content="&#xebc6;"
-                                    Foreground="Green"
                                     Padding="10 5 0 10"/>
 
                         </Grid>

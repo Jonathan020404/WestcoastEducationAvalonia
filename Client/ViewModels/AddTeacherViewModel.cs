@@ -46,7 +46,6 @@ public partial class AddTeacherViewModel : ViewModelBase
     [RelayCommand]
     private async Task Save()
     {
-        // Behöver eventuellt göra validering här...
         Teacher teacher = new()
         {
             FirstName = FirstName,
@@ -65,5 +64,15 @@ public partial class AddTeacherViewModel : ViewModelBase
         ClearData();
     }
 
-    private void ClearData() { }
+    private void ClearData()
+    {
+        FirstName = string.Empty;
+        LastName = string.Empty;
+        Email = string.Empty;
+        PhoneNumber = string.Empty;
+        Address = string.Empty;
+        PostalCode = string.Empty;
+        City = string.Empty;
+        Field = string.Empty;
+    }
 }

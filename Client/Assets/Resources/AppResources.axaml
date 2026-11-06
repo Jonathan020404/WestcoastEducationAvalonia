@@ -1,0 +1,14 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+  <SolidColorBrush x:Key="ForegroundColor" Color="{DynamicResource PrimaryForegroundColor}" />
+  <SolidColorBrush x:Key="BackgroundColor" Color="{DynamicResource PrimaryBackgroundColor}" />
+  <SolidColorBrush x:Key="EditBrush" Color="{DynamicResource EditColor}" />
+  <SolidColorBrush x:Key="DeleteBrush" Color="{DynamicResource DeleteColor}" />
+
+  <LinearGradientBrush x:Key="PrimaryBackgroundGradient" StartPoint="0% 0%" EndPoint="100% 0%">
+    <GradientStop Offset="0" Color="#041F0B"/>
+    <GradientStop Offset="1" Color="#153E21"/>
+  </LinearGradientBrush>
+  
+</ResourceDictionary>

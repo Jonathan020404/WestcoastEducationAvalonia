@@ -42,7 +42,6 @@ public partial class AddStudentViewModel : ViewModelBase
     [RelayCommand]
     private async Task Save()
     {
-        // Behöver eventuellt göra validering här...
         Student student = new()
         {
             FirstName = FirstName,

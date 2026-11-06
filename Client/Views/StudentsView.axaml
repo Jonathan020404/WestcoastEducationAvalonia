@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="using:Client.ViewModels"
              xmlns:models="using:Client.Models"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             mc:Ignorable="d" d:DesignWidth="1440" d:DesignHeight="900"
              x:Class="Client.Views.StudentsView"
              x:DataType="vm:StudentsViewModel">
 
@@ -28,7 +28,7 @@
                 BorderThickness="0 0 0 1"
                 Padding="0 50 0 5">
 
-            <Grid ColumnDefinitions="120,120,*,130,120"
+            <Grid ColumnDefinitions="150,150,*,280,250"
                   ShowGridLines="False">
 
                 <Label Content="Förnamn"/>
@@ -47,7 +47,7 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate x:DataType="models:Student">
 
-                        <Grid ColumnDefinitions="120,120,*,130,120"
+                        <Grid ColumnDefinitions="150,150,*,280,250"
                               ShowGridLines="False">
 
                             <Label Content="{Binding FirstName}"/>
